@@ -94,19 +94,19 @@ function saidYes(){
     setInterval(flowerFall, 300);
 }
 let loveMeter = 0;
+let loveMeterFull = false;
 
 function increaseLoveMeter() {
- 
+    if (loveMeterFull) return;
     loveMeter += 10; 
     document.getElementById("loveMeter").style.width = loveMeter + "%";
     document.getElementById("loveMeter").innerHTML=loveMeter+"%";
   
     if(loveMeter==100){
+        loveMeterFull = true;
         celebration();
-    }else if(loveMeter>100){
-        saidYes();
-        loveMeter=0;
     }
+    
   
 }
 
